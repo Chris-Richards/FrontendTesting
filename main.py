@@ -110,8 +110,8 @@ class UITest():
 
     def captureScreenshot(self):
         if self.targetDiv is None:
-            print("Unable to capture screenshot as targetDiv is None")
-            return
+            logger = Logger(2, 'unable to capture screenshot of targetDiv None')
+            self.driver.quit()
         targetElement = self.driver.find_element(By.ID, self.targetDiv)
         targetElement.screenshot(self.formattedUrl + "_step_" + str(self.journeyStep) + ".png")
         logger = Logger(1, 'screenshot saved of #' + self.targetDiv)
