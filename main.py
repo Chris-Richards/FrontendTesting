@@ -5,15 +5,10 @@ from random import random
 from print_color import print
 import json
 
-
-journeyStep = 1
-
 urls = [
     'https://rapidstorapp.com.au/live-demo',
     'https://mammothselfstore.com.au/book-online-2/',
 ]
-
-currentUrl = ''
 
 class Logger():
     def __init__(self, level, message):
