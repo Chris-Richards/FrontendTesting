@@ -24,7 +24,7 @@ I have attempted to use an event based system. Each test file contains a single 
 
 Event objects are made up of a few different items right now, with expansion somewhat taken into consideration but not really.
 
-The available event types and what do is below:
+The available event types and what they do is below:
 
 - ```target_div``` Sets the div element that you want to target for screenshots. This uses a HTML ID tag. Other attributes not supported yet.
 - ```find``` Finds an element in the driver. Only 'button' is supported right now.
@@ -38,3 +38,4 @@ The available event types and what do is below:
 - Figma layout overlay to compare design -> production builds.
 - Extrapolate this framework out to support generic testing rather than specifically set steps. Maybe something like a json object that you build a test in by targeting element IDs. Not sure yet.
 - Somehow integrate this into github actions to prevent merging of branches into production without a passed test.
+- Multi browser capability, currently only supports Firefox but ideally it could run Firefox, Safari and Chrome.

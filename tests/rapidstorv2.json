@@ -56,9 +56,17 @@
                 "event": "click"
             }
         ],
-        "fail": "die"
+        "fail": "iterate",
+        "iterator": {
+            "target": "button",
+            "value": "Larger",
+            "event": "click"
+        }
     },
     {
         "event": "screenshot"
+    },
+    {
+        "event": "die"
     }
 ]
