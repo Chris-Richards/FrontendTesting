@@ -21,7 +21,7 @@ class UITest():
     def __init__(self, url, testName):
         self.url = url
         self.testName = testName
-        self.journeyStep = 1
+        self.journeyStep = 0
         self.formattedUrl = url.replace('https://', '').replace('http://', '').split('.')[0]
         # Get the required URL with a cache bust timestamp to ensure we get the latest deployment
         self.getTestSteps()
@@ -34,8 +34,8 @@ class UITest():
         print("Starting Test For:" + self.url)
         for step in self.testSteps:
             self.runStep(step)
-            self.journeyStep = self.journeyStep + 1
             sleep(1)
+            self.journeyStep += 1
 
     def getTestSteps(self):
         testFile = open('tests/' + self.testName + '.json')
@@ -62,11 +62,18 @@ class UITest():
                             self.captureScreenshot()
                         if then['event'] == 'find':
                             if then['target'] == 'button':
-                                
+                                thenButton = self.findButton(then['target'], then['value'])
+                                for evThen in then['then']:
+                                    if evThen['event'] == 'click':
+                                        self.clickButton(thenButton)
 
                 else:
-                    if event['fail'] != 'skip':
-                        die('Test Failed: ' + step)
+                    if step['fail'] == 'die':
+                        self.driver.quit()
+                        raise Exception('Test Failed: ' + str(step['event']))
+                    if step['fail'] == 'skip':
+                        return
+                    if step['fail'] == 'try'
 
     def findButton(self, elementType, value):
         buttons = self.driver.find_elements(By.TAG_NAME, elementType)

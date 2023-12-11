@@ -36,7 +36,12 @@
                 "event": "find",
                 "target": "button",
                 "by": "text",
-                "value": "Cancel"
+                "value": "Cancel",
+                "then": [
+                    {
+                        "event": "click"
+                    }
+                ]
             }
         ],
         "fail": "skip"
@@ -50,6 +55,10 @@
             {
                 "event": "click"
             }
-        ]
+        ],
+        "fail": "die"
+    },
+    {
+        "event": "screenshot"
     }
 ]
