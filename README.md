@@ -14,6 +14,23 @@ Populate the urls array with the desired urls you want to test, make sure these 
 
 ```python main.py```
 
+## Writing Tests
+
+Tests are built via JSON file in the tests directory. The limited documentation on how these tests work is below.
+
+I have attempted to use an event based system. Each test file contains a single array of objects (events) in order of execution
+
+### Event Objects
+
+Event objects are made up of a few different items right now, with expansion somewhat taken into consideration but not really.
+
+The available event types and what do is below:
+
+- ```target_div``` Sets the div element that you want to target for screenshots. This uses a HTML ID tag. Other attributes not supported yet.
+- ```find``` Finds an element in the driver. Only 'button' is supported right now.
+- ```click``` Clicks the selected button element
+- ```screenshot``` Takes a screenshot of the instances set div
+
 ## TODO / Feature Ideas
 
 - Extract key functionality out into a reusable class.

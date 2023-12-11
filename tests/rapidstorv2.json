@@ -1,0 +1,55 @@
+[
+    {
+        "event": "target_div",
+        "value": "rapidstor-v2-frontend"
+    },
+    {
+        "event": "screenshot"
+    },
+    {
+        "event": "find",
+        "target": "button",
+        "by": "text",
+        "value": "Skip - Show me all prices",
+        "then": [
+            {
+                "event": "click"
+            }
+        ]
+    },
+    {
+        "event": "screenshot"
+    },
+    {
+        "event": "find",
+        "target": "button",
+        "by": "text",
+        "value": "Enquire",
+        "then": [
+            {
+                "event": "click"
+            },
+            {
+                "event": "screenshot"
+            },
+            {
+                "event": "find",
+                "target": "button",
+                "by": "text",
+                "value": "Cancel"
+            }
+        ],
+        "fail": "skip"
+    },
+    {
+        "event": "find",
+        "target": "button",
+        "by": "text",
+        "value": "Continue",
+        "then": [
+            {
+                "event": "click"
+            }
+        ]
+    }
+]
