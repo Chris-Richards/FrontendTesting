@@ -33,6 +33,7 @@ The available event types and what they do is below:
 
 ## TODO / Feature Ideas
 
+- Better documentation
 - Extract key functionality out into a reusable class.
 - Build some more in depth UI/UX testing functionality boilerplate outside of just screenshots.
 - Figma layout overlay to compare design -> production builds.

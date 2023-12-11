@@ -67,6 +67,20 @@
         "event": "screenshot"
     },
     {
+        "event": "find",
+        "target": "button",
+        "by": "text",
+        "value": "Continue",
+        "then": [
+            {
+                "event": "click"
+            }
+        ]
+    },
+    {
+        "event": "screenshot"
+    },
+    {
         "event": "die"
     }
 ]
