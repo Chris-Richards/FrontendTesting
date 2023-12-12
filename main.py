@@ -113,7 +113,7 @@ class UITest():
             logger = Logger(2, 'unable to capture screenshot of targetDiv None')
             self.driver.quit()
         targetElement = self.driver.find_element(By.ID, self.targetDiv)
-        targetElement.screenshot(self.formattedUrl + "_step_" + str(self.journeyStep) + ".png")
+        targetElement.screenshot(self.formattedUrl + str('_' + str(random())) + ".png")
         logger = Logger(1, 'screenshot saved of #' + self.targetDiv)
 
 uitest = UITest(urls[0], 'rapidstorv2')
