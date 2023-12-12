@@ -35,12 +35,12 @@ class UITest():
         self.getTestSteps()
         self.driver = webdriver.Firefox()
         self.driver.get(url + "?cb=" + str(random()))
-        # Wait 8 seconds for the RS embed to load - Should probably just ping an element from the system until it appears, this works for now.
+        # Wait 8 seconds for the RS embed to load - Should probably just ping an element from the booking until it appears, this works for now.
         sleep(8)
         self.runTest()
 
     def runTest(self):
-        print("Starting Test For:" + self.url)
+        logger = Logger(1, "Starting Test For:" + self.url)
         for step in self.testSteps:
             self.runStep(step)
             sleep(1)
@@ -50,12 +50,15 @@ class UITest():
         testFile = open('tests/' + self.testName + '.json')
         testFile = json.load(testFile)
         self.testSteps = testFile
+    
+    def die(self):
+        self.driver.quit()
+        logger = Logger(1, 'Die event found, test ended')
 
     def runStep(self, step):
         # Die
         if step['event'] == 'die':
-            self.driver.quit()
-            logger = Logger(1, 'Die event found, test ended')
+            self.die()
         # Setup Target Div
         if step['event'] == 'target_div':
             self.targetDiv = step['value']
